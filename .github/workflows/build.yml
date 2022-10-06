@@ -1,0 +1,23 @@
+name: build
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs: 
+  preparation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v3
+      
+      - run : go install github.com/tsliwowicz/go-wrk@latest
+
+      - name: Create Draft Release with Tag
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: ./go-wrk
+          name: latest
+          generateReleaseNotes: true
+          allowUpdates: true
+          replacesArtifacts: true
+          token: ${{ secrets.RELEASE_UPDATE }}
