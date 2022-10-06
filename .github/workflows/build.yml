@@ -9,16 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-go@v3
+      - 
       
       - run : go install github.com/tsliwowicz/go-wrk@latest
 
       - run: go env GOPATH
-      - run: ls  $(go env GOPATH)/bin
+      - run: ls  ${GOPATH}/bin
 
       - name: Create Draft Release with Tag
         uses: ncipollo/release-action@v1
         with:
-          artifacts: ./bin/go-wrk
+          artifacts: ${GOPATH}/bin/go-wrk
           name: "latest"
           tag: "latest"
           generateReleaseNotes: true
