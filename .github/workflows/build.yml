@@ -12,7 +12,7 @@ jobs:
       
       - run : go install github.com/tsliwowicz/go-wrk@latest
 
-      - run: tree *
+      - run: find / -name go-wrk
 
       - name: Create Draft Release with Tag
         uses: ncipollo/release-action@v1
