@@ -16,7 +16,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: ./go-wrk
-          name: latest
+          name: "latest"
+          tag: "latest"
           generateReleaseNotes: true
           allowUpdates: true
           replacesArtifacts: true
