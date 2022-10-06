@@ -17,7 +17,7 @@ jobs:
       - name: Create Draft Release with Tag
         uses: ncipollo/release-action@v1
         with:
-          artifacts: ./go-wrk
+          artifacts: ./bin/go-wrk
           name: "latest"
           tag: "latest"
           generateReleaseNotes: true
